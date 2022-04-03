@@ -1,12 +1,11 @@
 import { Router } from 'express';
-import {StatusCodes} from 'http-status-codes';
 
-const products = Router();
+import { showProducts } from '../controllers/productsControllers.js';
 
-products.get('/products', (req, res)=>{
-	return res.status(StatusCodes.OK).json({"users": "Holas"});
-});
+const productsRouter = Router();
+
+productsRouter.get('/products', showProducts);
 
 
-export default products;
+export default productsRouter;
 

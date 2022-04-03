@@ -1,11 +1,16 @@
 import { Router } from 'express';
 
-import { usersGetMethod } from '../controllers/usersControllers.js';
+import { usersGetMethod, usersRegister, usersLogin, usersMe } from '../controllers/usersControllers.js';
 
-const users = Router();
+const usersRouter = Router();
 
-users.get('/users', usersGetMethod);
+usersRouter.get('/users/', usersGetMethod);
 
+usersRouter.post('/users/register', usersRegister);
 
-export default users;
+usersRouter.post('/users/login', usersLogin);
+
+usersRouter.get('/users/me/:userId', usersMe);
+
+export default usersRouter;
 
